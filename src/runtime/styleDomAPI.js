@@ -1,3 +1,5 @@
+const { ssrCss } = require("../getStyleSheets");
+
 /* istanbul ignore next  */
 function apply(styleElement, options, obj) {
   let css = "";
@@ -37,6 +39,8 @@ function apply(styleElement, options, obj) {
       unescape(encodeURIComponent(JSON.stringify(sourceMap)))
     )} */`;
   }
+
+  ssrCss.add(css);
 
   // For old IE
   /* istanbul ignore if  */
