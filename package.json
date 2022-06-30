@@ -33,7 +33,7 @@
     "test:manual": "npm run build && webpack serve ./test/manual/src/index.js --open --config test/manual/webpack.config.js",
     "pretest": "npm run lint",
     "test": "npm run test:coverage",
-    "prepare": "husky install && npm run build",
+    "prepare": "husky install",
     "release": "standard-version"
   },
   "files": [
@@ -60,6 +60,7 @@
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
     "husky": "^7.0.1",
+    "husky-interactive": "^0.1.2",
     "jest": "^27.5.0",
     "jsdom": "^18.1.1",
     "lint-staged": "^12.5.0",
