@@ -25,6 +25,8 @@ import schema from "./options.json";
 const loaderAPI = () => {};
 
 loaderAPI.pitch = function loader(request) {
+  // console.log("loaderAPI.pitch", request);
+
   const options = this.getOptions(schema);
   const injectType = options.injectType || "styleTag";
   const esModule =
@@ -86,7 +88,7 @@ ${esModule ? "export default {}" : ""}`;
       const hmrCode = this.hot
         ? getStyleHmrCode(esModule, this, request, true)
         : "";
-
+      console.log("hmrCode", runtimeOptions);
       return `
       var exported = {};
 
@@ -134,6 +136,17 @@ exported.use = function(insertOptions) {
 
   return exported;
 };
+
+log(function(insertOptions) {
+  options.options = insertOptions || {};
+
+  if (!(refs++)) {
+    update = API(content, options);
+  }
+
+  return exported;
+}(););
+
 exported.unuse = function() {
   if (refs > 0 && !--refs) {
     update();
