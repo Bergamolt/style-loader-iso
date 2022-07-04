@@ -1,3 +1,5 @@
+const { ssrCss } = require("../getStyleSheets");
+
 /* istanbul ignore next  */
 const replaceText = (function replaceText() {
   const textStore = [];
@@ -47,11 +49,12 @@ function apply(styleElement, index, remove, obj) {
     }
   }
 
-  // For old IE
-  /* istanbul ignore if  */
-  if (styleElement.styleSheet) {
+  ssrCss.add(css);
+
+  // eslint-disable-next-line
+  if (styleElement?.styleSheet) {
     styleElement.styleSheet.cssText = replaceText(index, css);
-  } else {
+  } else if (typeof document !== "undefined") {
     const cssNode = document.createTextNode(css);
     const childNodes = styleElement.childNodes;
 

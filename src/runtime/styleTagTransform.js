@@ -1,11 +1,7 @@
-const { ssrCss } = require("../getStyleSheets");
-
 /* istanbul ignore next  */
 function styleTagTransform(css, styleElement) {
-  ssrCss.add(css);
-
   if (typeof document !== "undefined") {
-    if (styleElement.styleSheet) {
+    if (styleElement && styleElement.styleSheet) {
       styleElement.styleSheet.cssText = css;
     } else {
       while (styleElement.firstChild) {
