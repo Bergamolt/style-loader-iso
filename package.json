@@ -1,7 +1,7 @@
 {
-  "name": "style-loader",
+  "name": "style-loader-ssr",
   "version": "3.3.1",
-  "description": "style loader module for webpack",
+  "description": "style loader ssr module for webpack",
   "license": "MIT",
   "repository": "webpack-contrib/style-loader",
   "author": "Tobias Koppers @sokra",
